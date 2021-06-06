@@ -1,5 +1,4 @@
 const indicator = document.querySelector(".indicator");
-const input = document.querySelector("input");
 const weak = document.querySelector(".weak");
 const medium = document.querySelector(".medium");
 const strong = document.querySelector(".strong");
@@ -8,30 +7,34 @@ const showBtn = document.querySelector(".showButton");
 
 let regExpWeak = /[a-z]/;
 let regExpMedium = /\d+/;
-let regExpStrong = /.[!,@,#,$,%,^,&,*,?,_,~,-,(,)][A-Z]/;
+let regExpStrong = /[A-Z]/;
+let regExpStrongTwo = /[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/;
 
 function isWeak(input){
-    return (input.value.length <= 3 && (input.value.match(regExpWeak) || input.value.match(regExpMedium) || input.value.match(regExpStrong)));
+    if(input.value.length <= 5 && (input.value.match(regExpWeak) || input.value.match(regExpMedium) || input.value.match(regExpStrong))) return true;
+    return false;
 }
 
 function isMedium(input){
-    return (input.value.length >= 6 && ((input.value.match(regExpWeak) && input.value.match(regExpMedium)) || (input.value.match(regExpMedium) && input.value.match(regExpStrong)) || (input.value.match(regExpWeak) && input.value.match(regExpStrong))));
+    if(input.value.length >=6 && ((input.value.match(regExpWeak) && input.value.match(regExpMedium)) || (input.value.match(regExpMedium) && input.value.match(regExpStrong)) || (input.value.match(regExpWeak) && input.value.match(regExpStrong)))) return true;
+    return false
 }
 
 function isStrong(input){
-    return (input.value.length >= 6 && input.value.match(regExpWeak) && input.value.match(regExpMedium) && input.value.match(regExpStrong));
+    if(input.value.length >= 6 && (input.value.match(regExpWeak) && input.value.match(regExpMedium) && input.value.match(regExpStrong) && input.value.match(regExpStrongTwo))) return true;
+    return false;
 }
 
 function evaluatePassword(input){
-
     if(isWeak(input)) no = 1;
     if(isMedium(input)) no = 2;
     if(isStrong(input)) no = 3;
-
     return no;
 }
 
 function handlePassword(){
+    const input = document.querySelector("input");
+
     if(input.value != ""){
 
         indicator.style.display = "block";
