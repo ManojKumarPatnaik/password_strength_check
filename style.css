@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+    display: grid;
+    height: 100%;
+    place-items: center;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+.container {
+    width: 420px;
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.container header {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 33px;
+}
+
+.container form {
+    margin: 20px 5px 10px 5px;
+}
+
+form .field {
+    height: 45px;
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+form .field input {
+    height: 100%;
+    width: 100%;
+    border: 1px solid lightgrey;
+    padding-left: 15px;
+    outline: none;
+    border-radius: 5px;
+    font-size: 17px;
+    transition: all 0.3s;
+}
+
+form .field input:focus {
+    border-color: #27a360;
+    box-shadow: inset 0 0 3px #2fd072;
+}
+
+form .field .showButton {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    display: none;
+}
+
+form .indicator {
+    height: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+    display: none;
+}
+
+form .indicator span {
+    width: 100%;
+    height: 100%;
+    background: lightgrey;
+    border-radius: 5px;
+    position: relative;
+}
+
+form .indicator span.medium {
+    margin: 0 3px;
+}
+
+form .indicator span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    border-radius: 5px;
+}
+
+form .indicator span.active.weak::before {
+    background-color: #ff4757;
+}
+
+form .indicator span.active.medium::before {
+    background-color: orange;
+}
+
+form .indicator span.active.strong::before {
+    background-color: #23ad5c;
+}
+
+form .text {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: -10;
+    display: none;
+}
+
+form .text.weak {
+    color: #ff4757;
+}
+
+form .text.medium {
+    color: orange;
+}
+
+form .text.strong {
+    color: #23ad5c;
+}

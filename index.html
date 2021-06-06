@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strangth Check</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>Password Strength Check</header>
+        
+        <form action="#">
+            <div class="field">
+                <input onkeyup="handlePassword()" type="password" placeholder="Type password">
+                <span class="showButton" title="Show password">SHOW</span>
+            </div>
+            <div class="indicator">
+                <span class="weak"></span>
+                <span class="medium"></span>
+                <span class="strong"></span>
+            </div>
+            <div class="text">Your password is too week</div>
+        </form>
+    </div>
+    <script src="./script.js" defer></script>
+</body>
+</html>
